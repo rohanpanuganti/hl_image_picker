@@ -23,38 +23,18 @@ class HLPickerItem {
   final double? duration;
   final String? thumbnail;
 
-  factory HLPickerItem.fromMap(Map<dynamic, dynamic> json) {
-    // Helper function to safely convert to int, defaulting to 0 if null or invalid
-    int _toInt(dynamic v) {
-      if (v == null) return 0;
-      if (v is int) return v;
-      if (v is double) return v.toInt();
-      if (v is String) return int.tryParse(v) ?? 0;
-      return 0;
-    }
-
-    // Helper function to safely convert to double?, returning null if null or invalid
-    double? _toDouble(dynamic v) {
-      if (v == null) return null;
-      if (v is double) return v;
-      if (v is int) return v.toDouble();
-      if (v is String) return double.tryParse(v);
-      return null;
-    }
-
-    return HLPickerItem(
-      path: json['path'] != null ? Uri.decodeFull(json['path'].toString()) : '',
-      id: json['id']?.toString() ?? '',
-      name: json['name']?.toString() ?? '',
-      mimeType: json['mimeType']?.toString() ?? '',
-      size: _toInt(json['size']),
-      width: _toInt(json['width']),
-      height: _toInt(json['height']),
-      duration: _toDouble(json['duration']),
-      thumbnail: json['thumbnail']?.toString(),
-      type: json['type']?.toString() ?? '',
-    );
-  }
+  factory HLPickerItem.fromMap(Map<dynamic, dynamic> json) => HLPickerItem(
+        path: Uri.decodeFull(json['path']),
+        id: json['id'],
+        name: json['name'],
+        mimeType: json['mimeType'],
+        size: json['size'],
+        width: json['width'],
+        height: json['height'],
+        duration: json['duration'],
+        thumbnail: json['thumbnail'],
+        type: json['type'],
+      );
 
   Map<dynamic, dynamic> toMap() {
     final data = <dynamic, dynamic>{};
