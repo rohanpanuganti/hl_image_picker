@@ -1,3 +1,7 @@
+## 1.2.10 (fork)
+
+* Swift Package Manager support. TLPhotoPicker and TOCropViewController are pinned to the versions the CocoaPods build used (2.1.21 and 2.6.0). Minimum iOS raised from 11 to 13.
+
 ## 1.2.10
 
 * Encode the path when opening the cropper

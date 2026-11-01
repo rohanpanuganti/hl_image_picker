@@ -13,11 +13,11 @@ Choose images/videos from the library, crop images, and capture new photos/video
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Howl' => 'lehau.dev@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'hl_image_picker_ios/Sources/hl_image_picker_ios/**/*.swift'
   s.dependency 'Flutter'
   s.dependency 'TLPhotoPicker'
   s.dependency 'CropViewController'
-  s.platform = :ios, '11.0'
+  s.platform = :ios, '13.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
